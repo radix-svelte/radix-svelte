@@ -1,10 +1,4 @@
 <script lang="ts" context="module">
-	type Props = BaseProps & {
-		open?: boolean;
-		defaultOpen?: boolean;
-		disabled?: boolean;
-	};
-
 	export type Context = {
 		open: Writable<boolean>;
 		disabled: Readable<boolean>;
@@ -22,9 +16,13 @@
 
 	import type { BaseProps } from '$lib/types';
 	import { getContext, setContext } from 'svelte';
-	import { derived, type Readable, type Writable } from 'svelte/store';
+	import { derived, writable, type Readable, type Writable } from 'svelte/store';
 
-	type $$Props = Props;
+	type $$Props = BaseProps & {
+		open?: boolean;
+		defaultOpen?: boolean;
+		disabled?: boolean;
+	};
 
 	export let open = false;
 	export let defaultOpen = false;
@@ -33,7 +31,7 @@
 	const writableOpen = controllableState(open || defaultOpen, (v) => (open = v));
 	$: $writableOpen = open || defaultOpen;
 
-	const writableDisabled = controllableState(disabled, (v) => (disabled = v));
+	const writableDisabled = writable(disabled);
 	$: $writableDisabled = disabled;
 
 	setContext<Context>(key, {
@@ -42,10 +40,6 @@
 	});
 </script>
 
-<div
-	{...$$restProps}
-	data-state={open ? 'open' : 'closed'}
-	data-disabled={disabled ? 'true' : 'false'}
->
+<div data-state={open ? 'open' : 'closed'} data-disabled={disabled ? 'true' : 'false'}>
 	<slot />
 </div>
