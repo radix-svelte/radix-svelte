@@ -6,11 +6,17 @@
 </h1>
 </p>
 
-## Description
-
 This is a port of [Radix UI](https://www.radix-ui.com/) for Svelte.
 
-### Design Principles
+## Installation
+
+```
+npm i radix-svelte
+pnpm i radix-svelte
+yarn add radix-svelte
+```
+
+## Design Principles
 
 This is not a 1:1 re-implementation of Radix UI. The goal is to provide a similar API and experience, but with a few differences:
 
