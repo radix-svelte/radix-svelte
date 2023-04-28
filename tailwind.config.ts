@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss';
-import plugin from 'tailwindcss/plugin';
 
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
@@ -22,34 +21,7 @@ export default {
 				},
 			},
 			fontFamily: {
-				sans: [
-					'Overpass',
-					'Seravek',
-					'Gill Sans Nova',
-					'Ubuntu',
-					'Calibri',
-					'DejaVu Sans',
-					'source-sans-pro',
-					'Apple Color Emoji',
-					'Segoe UI Emoji',
-					'Segoe UI Symbol',
-					'Noto Color Emoji',
-					'sans-serif',
-				],
-				mono: [
-					'Overpass Mono',
-					'ui-monospace',
-					'Source Code Pro',
-					'Cascadia Code',
-					'Menlo',
-					'Consolas',
-					'DejaVu Sans Mono',
-					'Apple Color Emoji',
-					'Segoe UI Emoji',
-					'Segoe UI Symbol',
-					'Noto Color Emoji',
-					'monospace',
-				],
+				sans: ['Inter', 'sans-serif'],
 			},
 			keyframes: {
 				overlayShow: {
@@ -68,9 +40,5 @@ export default {
 		},
 	},
 
-	plugins: [
-		plugin(function ({ addVariant }) {
-			addVariant('hocus', ['&:hover', '&:focus']);
-		}),
-	],
+	plugins: [],
 } satisfies Config;
