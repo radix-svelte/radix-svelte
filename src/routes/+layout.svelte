@@ -49,7 +49,7 @@
 					class="h-6 w-6 text-white opacity-75 hover:opacity-100 active:translate-y-px lg:hidden"
 				/>
 			</a>
-			<a href="/docs/accordion" class="link">
+			<a href="/docs" class="link">
 				<span class="hidden lg:block"> Documentation </span>
 				<span class="block lg:hidden"> Docs </span>
 			</a>

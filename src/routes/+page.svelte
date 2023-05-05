@@ -103,8 +103,9 @@
 			theme('colors.vermilion.800/0.25')
 		);
 
-		opacity: 0.25;
+		opacity: 0.35;
 
 		display: none;
+		filter: blur(8px);
 	}
 </style>
