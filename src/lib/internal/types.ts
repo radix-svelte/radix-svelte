@@ -42,4 +42,5 @@ export type BaseProps<El extends keyof SvelteHTMLElements = 'div'> = SvelteHTMLE
 	['data-testid']?: string;
 	['data-state']?: string;
 	[key: `data-${string}`]: string | boolean | undefined;
+	asChild?: boolean;
 };

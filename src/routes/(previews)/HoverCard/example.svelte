@@ -11,8 +11,13 @@
 		openDelay={propsObj.Root.openDelay}
 		closeDelay={propsObj.Root.closeDelay}
 	>
-		<HoverCard.Trigger>
-			<a href="https://github.com/TGlide/radix-svelte">
+		<HoverCard.Trigger asChild let:ref let:props>
+			<a
+				class="rounded-full p-2 outline-none focus:ring focus:ring-black"
+				href="https://github.com/TGlide/radix-svelte"
+				use:ref
+				{...props()}
+			>
 				<img class="h-8 w-8" src="/radix-svelte.svg" alt="Radix and Svelte logos" />
 			</a>
 		</HoverCard.Trigger>

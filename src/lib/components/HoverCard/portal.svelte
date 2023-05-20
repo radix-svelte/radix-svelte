@@ -1,25 +1,25 @@
-<script lang='ts' context='module'>
-    type PortalProps = ComponentProps<InstanceType<typeof Portal>>;
-    export type HoverCardPortalProps = Omit<PortalProps, 'target'> & {
-        container?: PortalProps['target'];
-    };
+<script lang="ts" context="module">
+	type PortalProps = ComponentProps<InstanceType<typeof Portal>>;
+	export type HoverCardPortalProps = Omit<PortalProps, 'target'> & {
+		container?: PortalProps['target'];
+	};
 </script>
 
-<script lang='ts'>
-    import {Portal} from '$lib/internal/components';
-    import {getRootContext} from './root.svelte';
+<script lang="ts">
+	import { Portal } from '$lib/internal/components';
+	import { getRootContext } from './root.svelte';
 
-    import type {ComponentProps} from 'svelte';
+	import type { ComponentProps } from 'svelte';
 
-    type $$Props = HoverCardPortalProps;
+	type $$Props = HoverCardPortalProps;
 
-    export let container: $$Props['container'] = 'body';
+	export let container: $$Props['container'] = 'body';
 
-    const ctx = getRootContext();
+	const ctx = getRootContext();
 </script>
 
 {#if $ctx.open}
-<Portal target={container} {...$$restProps}>
-<slot></slot>
-</Portal>
+	<Portal target={container} {...$$restProps}>
+		<slot />
+	</Portal>
 {/if}
