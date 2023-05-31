@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Checkbox } from '$lib';
 	import type { ResolvedProps } from '$lib/internal/helpers';
+	import { fly } from 'svelte/transition';
 	// These are internal icons, but they're not exported from the package.
 	// Use your own icons instead.
 	import Check from '~icons/lucide/check';
@@ -22,7 +23,11 @@
 			id="c1"
 		>
 			<Checkbox.Indicator class="text-vermilion-700">
-				<Check />
+				{#if propsObj.Root.checked === true}
+					<div transition:fly={{ y: -4, duration: 250 }}>
+						<Check />
+					</div>
+				{/if}
 			</Checkbox.Indicator>
 		</Checkbox.Root>
 		<label class="pl-[15px] text-[15px] leading-none text-white" for="c1">

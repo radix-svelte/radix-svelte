@@ -1,6 +1,7 @@
 <script lang="ts" context="module">
 	import { useActions } from '$lib/internal/helpers';
 	import type { BaseProps } from '$lib/internal/types';
+
 	export type SelectItemTextProps = BaseProps<'div'>;
 </script>
 
