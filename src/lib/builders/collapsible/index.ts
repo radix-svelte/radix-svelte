@@ -7,24 +7,24 @@ type CreateCollapsibleArgs = {
 } & CollapsibleRootProps;
 
 export type CollapsibleRootProps = {
-    open?: boolean;
-    disabled?: boolean;
+	open?: boolean;
+	disabled?: boolean;
 };
 
 type CollapsibleProps = Required<CollapsibleRootProps>; // Add subcomponent props
 
 export function createCollapsible(args?: CreateCollapsibleArgs) {
-
-    const ctx: WritableObject<CollapsibleProps> = {
-        open: writable(args?.open),
-        disabled: writable(args?.disabled)
-    };
+	const ctx: WritableObject<CollapsibleProps> = {
+		open: writable(args?.open),
+		disabled: writable(args?.disabled),
+	};
 
 	ctx.open.subscribe((open) => {
+		if (typeof open === 'undefined') return;
 		args?.onChange?.(open);
 	});
 
-    const root = derived([ctx.open, ctx.disabled], ([$open, $disabled]) => ({
+	const root = derived([ctx.open, ctx.disabled], ([$open, $disabled]) => ({
 		'data-state': $open ? 'open' : 'closed',
 		'data-disabled': $disabled ? 'true' : 'undefined',
 	}));
@@ -46,7 +46,7 @@ export function createCollapsible(args?: CreateCollapsibleArgs) {
 		hidden: $open ? undefined : true,
 	}));
 
-    return Object.assign(contextUpdater(ctx), {
+	return Object.assign(contextUpdater(ctx), {
 		root,
 		trigger,
 		content,

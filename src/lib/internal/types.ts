@@ -45,5 +45,4 @@ export type BaseProps<El extends keyof SvelteHTMLElements = 'div'> = SvelteHTMLE
 	[key: `data-${string}`]: string | boolean | undefined;
 };
 
-
-export type WritableObject<T> = {[Property in keyof T]: Writable<T[Property]>}
+export type WritableObject<T> = { [Property in keyof T]: Writable<T[Property]> };

@@ -14,7 +14,7 @@
 	import { createEventDispatcher } from 'svelte';
 	// import { writable, type Readable } from 'svelte/store';
 
-	type $$Props = CollapsibleRootProps & BaseProps & { asChild: boolean };
+	type $$Props = CollapsibleRootProps & BaseProps & { asChild?: boolean };
 	export let open: $$Props['open'] = false;
 	export let disabled: $$Props['disabled'] = false;
 	export let use: $$Props['use'] = [];
@@ -28,14 +28,15 @@
 		onChange: (v) => {
 			open = v;
 			dispatch('change', v);
-		}
+		},
 	});
 
 	setContext(collapsible);
 
-    $: collapsible({
-        open, disabled
-    });
+	$: collapsible({
+		open,
+		disabled,
+	});
 
 	const root = collapsible.root;
 </script>

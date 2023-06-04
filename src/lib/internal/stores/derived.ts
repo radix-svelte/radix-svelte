@@ -1,5 +1,5 @@
 import { tick } from 'svelte';
-import { derived, get, type Readable } from 'svelte/store';
+import { derived, type Readable } from 'svelte/store';
 import { getElementById, isBrowser, uuid } from '../helpers';
 import type { WritableObject } from '../types';
 
@@ -37,13 +37,11 @@ type Attach = <T extends keyof HTMLElementEventMap>(
 	options?: boolean | AddEventListenerOptions
 ) => void;
 
-
-
 export function elementDerived<S extends Stores, T>(
 	stores: S,
 	fn: (values: StoresValues<S>, attach: Attach) => T
 ) {
-    const id = uuid();
+	const id = uuid();
 	let unsubscribers: (() => void)[] = [];
 	const attach: Attach = (event, listener, options) => {
 		if (isBrowser) {
@@ -63,9 +61,9 @@ export function elementDerived<S extends Stores, T>(
 		unsubscribers.forEach((fn) => fn());
 		unsubscribers = [];
 		return {
-            ...fn($storeValues, attach), 
-            'data-radix-id': id
-        };
+			...fn($storeValues, attach),
+			'data-radix-id': id,
+		};
 	});
 
 	return {
@@ -80,14 +78,13 @@ export function elementDerived<S extends Stores, T>(
 	};
 }
 
-
 export function contextUpdater<T>(ctx: WritableObject<T>) {
-    return (newContext: Partial<T>) => {
-        for (const key in newContext) {
-            const prop = newContext[key as keyof T];
-            if (typeof prop !== 'undefined') {
-                ctx[key as keyof T].set(prop);
-            }
-        }
-    }
+	return (newContext: Partial<T>) => {
+		for (const key in newContext) {
+			const prop = newContext[key as keyof T];
+			if (typeof prop !== 'undefined') {
+				ctx[key as keyof T].set(prop);
+			}
+		}
+	};
 }
