@@ -1,0 +1,16 @@
+- [ ] Arrow
+- [ ] Content
+- [x] Group
+- [x] Icon
+- [ ] Item
+- [ ] ItemIndicator
+- [ ] ItemText
+- [x] Label
+- [x] Portal
+- [x] Root
+- [ ] ScrollDownButton
+- [ ] ScrollUpButton
+- [ ] Separator
+- [x] Trigger
+- [x] Value
+- [ ] Viewport
