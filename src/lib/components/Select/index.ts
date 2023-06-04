@@ -18,18 +18,13 @@ import ItemText from './itemText.svelte';
 export type { SelectItemTextProps } from './itemText.svelte';
 import ItemIndicator from './itemIndicator.svelte';
 export type { SelectItemIndicatorProps } from './itemIndicator.svelte';
-import ScrollUpButton from './scrollUpButton.svelte';
-export type { SelectScrollUpButtonProps } from './scrollUpButton.svelte';
-import ScrollDownButton from './scrollDownButton.svelte';
-export type { SelectScrollDownButtonProps } from './scrollDownButton.svelte';
+
 import Group from './group.svelte';
 export type { SelectGroupProps } from './group.svelte';
 import Label from './label.svelte';
 export type { SelectLabelProps } from './label.svelte';
 import Separator from './separator.svelte';
 export type { SelectSeparatorProps } from './separator.svelte';
-import Arrow from './arrow.svelte';
-export type { SelectArrowProps } from './arrow.svelte';
 
 export const Select = {
 	Root,
@@ -42,10 +37,7 @@ export const Select = {
 	Item,
 	ItemText,
 	ItemIndicator,
-	ScrollUpButton,
-	ScrollDownButton,
 	Group,
 	Label,
 	Separator,
-	Arrow,
 };
