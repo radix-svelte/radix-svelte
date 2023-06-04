@@ -1,15 +1,14 @@
 <script lang="ts" context="module">
-	import { useActions } from '$lib/internal/helpers';
-	import type { BaseProps } from '$lib/internal/types';
+	import { Portal } from '$lib/internal/components';
+	import type { PortalProps } from '$lib/internal/components/Portal.svelte';
 
-	export type SelectPortalProps = BaseProps<'div'>;
+	export type SelectPortalProps = PortalProps;
 </script>
 
 <script lang="ts">
 	type $$Props = SelectPortalProps;
-	export let use: $$Props['use'] = [];
 </script>
 
-<div {...$$restProps} use:useActions={use ?? []}>
+<Portal {...$$restProps}>
 	<slot />
-</div>
+</Portal>

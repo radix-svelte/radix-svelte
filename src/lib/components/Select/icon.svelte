@@ -2,7 +2,7 @@
 	import { useActions } from '$lib/internal/helpers';
 	import type { BaseProps } from '$lib/internal/types';
 
-	export type SelectIconProps = BaseProps<'div'>;
+	export type SelectIconProps = BaseProps<'span'>;
 </script>
 
 <script lang="ts">
@@ -10,6 +10,6 @@
 	export let use: $$Props['use'] = [];
 </script>
 
-<div {...$$restProps} use:useActions={use ?? []}>
-	<slot />
-</div>
+<span aria-hidden {...$$restProps} use:useActions={use ?? []}>
+	<slot>▼</slot>
+</span>

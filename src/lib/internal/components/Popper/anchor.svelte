@@ -3,14 +3,15 @@
 	import type { BaseProps } from '$lib/internal/types';
 	import { getRootContext } from './root.svelte';
 
-	export type PopperAnchorProps = BaseProps & {
-		as?: 'div' | 'button' | 'a';
+	export type PopperAnchorProps<T extends 'div' | 'button' | 'a'> = BaseProps<T> & {
+		as?: T;
 		ref?: HTMLElement | null;
 	};
 </script>
 
 <script lang="ts">
-	type $$Props = PopperAnchorProps;
+	type $$Generic = 'div' | 'button' | 'a';
+	type $$Props = PopperAnchorProps<$$Generic>;
 	export let use: $$Props['use'] = [];
 	export let as: $$Props['as'] = 'div';
 	export let ref: $$Props['ref'] = null;

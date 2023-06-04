@@ -3,7 +3,6 @@ import Arrow from './arrow.svelte';
 import Content from './content.svelte';
 import Root from './root.svelte';
 
-export type { PopperRootProps } from './root.svelte';
 export type { PopperAnchorProps } from './anchor.svelte';
 export type { PopperArrowProps } from './arrow.svelte';
 export type { PopperContentProps } from './content.svelte';

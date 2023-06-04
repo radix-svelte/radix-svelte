@@ -1,8 +1,5 @@
 <script lang="ts" context="module">
 	import { reactiveContext } from '$lib/internal/helpers';
-	import type { BaseProps } from '$lib/internal/types';
-
-	export type PopperRootProps = BaseProps;
 
 	type RootContext = {
 		anchor: HTMLElement | null;
@@ -17,8 +14,6 @@
 </script>
 
 <script lang="ts">
-	type $$Props = PopperRootProps;
-
 	setContext();
 </script>
 
