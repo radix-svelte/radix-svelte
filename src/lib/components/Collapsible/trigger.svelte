@@ -14,7 +14,7 @@
 	export let asChild: $$Props['asChild'] = false;
 
 	const ctx = getCollapsibleRootContext();
-	$: trigger = $ctx?.trigger ?? {};
+	const trigger = ctx?.trigger ?? {};
 </script>
 
 {#if asChild}

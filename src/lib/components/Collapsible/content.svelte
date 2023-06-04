@@ -31,7 +31,7 @@
 	})();
 
 	const ctx = getCollapsibleRootContext();
-	$: ({ content, open } = $ctx);
+	const { content, open } = ctx;
 </script>
 
 {#if asChild}

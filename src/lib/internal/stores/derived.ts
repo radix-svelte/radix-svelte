@@ -1,9 +1,11 @@
 import { tick } from 'svelte';
-import { derived, type Readable } from 'svelte/store';
-import { getElementById, isBrowser } from '../helpers';
+import { derived, get, type Readable } from 'svelte/store';
+import { getElementById, isBrowser, uuid } from '../helpers';
+import type { WritableObject } from '../types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Stores = Readable<any> | [Readable<any>, ...Array<Readable<any>>] | Array<Readable<any>>;
+
 /** One or more values from `Readable` stores. */
 type StoresValues<T> = T extends Readable<infer U>
 	? U
@@ -30,18 +32,20 @@ export function derivedWithUnsubscribe<S extends Stores, T>(
 }
 
 type Attach = <T extends keyof HTMLElementEventMap>(
-	radixId: string,
 	type: T,
 	listener: (ev: HTMLElementEventMap[T]) => void,
 	options?: boolean | AddEventListenerOptions
 ) => void;
 
+
+
 export function elementDerived<S extends Stores, T>(
 	stores: S,
 	fn: (values: StoresValues<S>, attach: Attach) => T
 ) {
+    const id = uuid();
 	let unsubscribers: (() => void)[] = [];
-	const attach: Attach = (id, event, listener, options) => {
+	const attach: Attach = (event, listener, options) => {
 		if (isBrowser) {
 			tick().then(() => {
 				const element = getElementById(id);
@@ -58,7 +62,10 @@ export function elementDerived<S extends Stores, T>(
 	const derivedStore = derived(stores, ($storeValues) => {
 		unsubscribers.forEach((fn) => fn());
 		unsubscribers = [];
-		return fn($storeValues, attach);
+		return {
+            ...fn($storeValues, attach), 
+            'data-radix-id': id
+        };
 	});
 
 	return {
@@ -71,4 +78,16 @@ export function elementDerived<S extends Stores, T>(
 			};
 		},
 	};
+}
+
+
+export function contextUpdater<T>(ctx: WritableObject<T>) {
+    return (newContext: Partial<T>) => {
+        for (const key in newContext) {
+            const prop = newContext[key as keyof T];
+            if (typeof prop !== 'undefined') {
+                ctx[key as keyof T].set(prop);
+            }
+        }
+    }
 }

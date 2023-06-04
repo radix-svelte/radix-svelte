@@ -1,54 +1,55 @@
-import { uuid } from '$lib/internal/helpers';
-import { elementDerived } from '$lib/internal/stores';
+import { contextUpdater, elementDerived } from '$lib/internal/stores';
+import type { WritableObject } from '$lib/internal/types';
 import { derived, writable } from 'svelte/store';
 
 type CreateCollapsibleArgs = {
-	open?: boolean;
 	onChange?: (open: boolean) => void;
-	disabled?: boolean;
+} & CollapsibleRootProps;
+
+export type CollapsibleRootProps = {
+    open?: boolean;
+    disabled?: boolean;
 };
 
-const defaults = {
-	open: false,
-	disabled: false,
-} satisfies CreateCollapsibleArgs;
+type CollapsibleProps = Required<CollapsibleRootProps>; // Add subcomponent props
 
 export function createCollapsible(args?: CreateCollapsibleArgs) {
-	const options = { ...defaults, ...args };
 
-	const open = writable(options.open);
-	open.subscribe((open) => {
-		options.onChange?.(open);
+    const ctx: WritableObject<CollapsibleProps> = {
+        open: writable(args?.open),
+        disabled: writable(args?.disabled)
+    };
+
+	ctx.open.subscribe((open) => {
+		args?.onChange?.(open);
 	});
 
-	const root = derived(open, ($open) => ({
+    const root = derived([ctx.open, ctx.disabled], ([$open, $disabled]) => ({
 		'data-state': $open ? 'open' : 'closed',
-		'data-disabled': options.disabled ? 'true' : 'undefined',
+		'data-disabled': $disabled ? 'true' : 'undefined',
 	}));
 
-	const trigger = elementDerived(open, ($open, attach) => {
-		const id = uuid();
-		if (!options.disabled) {
-			attach(id, 'click', () => open.set(!$open));
+	const trigger = elementDerived([ctx.open, ctx.disabled], ([$open, $disabled], attach) => {
+		if (!$disabled) {
+			attach('click', () => ctx.open.set(!$open));
 		}
 
 		return {
 			'data-state': $open ? 'open' : 'closed',
-			'data-disabled': options.disabled ? 'true' : undefined,
-			'data-radix-id': id,
+			'data-disabled': $disabled ? 'true' : undefined,
 		};
 	});
 
-	const content = derived(open, ($open) => ({
+	const content = derived([ctx.open, ctx.disabled], ([$open, $disabled]) => ({
 		'data-state': $open ? 'open' : 'closed',
-		'data-disabled': options.disabled ? 'true' : undefined,
+		'data-disabled': $disabled ? 'true' : undefined,
 		hidden: $open ? undefined : true,
 	}));
 
-	return {
+    return Object.assign(contextUpdater(ctx), {
 		root,
 		trigger,
 		content,
-		open,
-	};
+		open: ctx.open,
+	});
 }

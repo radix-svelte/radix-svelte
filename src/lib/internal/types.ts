@@ -1,3 +1,4 @@
+import type { Writable } from 'svelte/store';
 import type { ActionArray } from './helpers';
 import type { SvelteHTMLElements } from 'svelte/elements';
 
@@ -43,3 +44,6 @@ export type BaseProps<El extends keyof SvelteHTMLElements = 'div'> = SvelteHTMLE
 	['data-state']?: string;
 	[key: `data-${string}`]: string | boolean | undefined;
 };
+
+
+export type WritableObject<T> = {[Property in keyof T]: Writable<T[Property]>}
