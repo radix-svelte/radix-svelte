@@ -108,6 +108,7 @@ Our [Discord community](https://discord.gg/gQrpPs34xH) is a great place to get i
 
 Looking for more? Check out these other projects too:
 
+- [shadcn-svelte](https://www.shadcn-svelte.com/)
 - [Skeleton](https://skeleton.dev/)
 - [Svelte Headless UI](https://svelte-headlessui.goss.io/docs)
 - [Flowbite Svelte](https://flowbite-svelte.com/)
