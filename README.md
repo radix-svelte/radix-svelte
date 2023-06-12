@@ -5,6 +5,8 @@
  </h1>
 </p>
 
+> ⚠ I have currently paused active development on my end. Read the [announcement](./ANNOUNCEMENT.md) for more information.
+
 [Radix Svelte](https://www.radix-svelte.com/) is an unofficial community-led [Svelte](https://svelte.dev) port of [Radix UI Primitives](https://www.radix-ui.com/), a set of unstyled, accessible components for building high‑quality design systems and web apps.
 
 [![](https://img.shields.io/npm/v/radix-svelte?style=flat-square)](https://www.npmjs.com/package/radix-svelte)
