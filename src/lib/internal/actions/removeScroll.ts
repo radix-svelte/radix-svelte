@@ -18,7 +18,10 @@ export const removeScroll = ((node, params) => {
 			if (params.disable) {
 				const top = Number(document.body.style.top.replace('-', '').replace('px', ''));
 				document.body.style.removeProperty('top');
+				const html = document.querySelector('html');
+				html!.style.scrollBehavior = 'auto';
 				window.scrollTo(window.scrollX, top);
+				html!.style.scrollBehavior = '';
 			}
 		}
 	};
