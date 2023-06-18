@@ -44,8 +44,8 @@
 			target="_blank"
 			class="underline hover:opacity-75"
 		>
-			announcement
-		</a>.
+			announcement</a
+		>.
 	</div>
 	<nav
 		class={cn(
