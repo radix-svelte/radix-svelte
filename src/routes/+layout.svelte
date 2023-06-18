@@ -37,6 +37,16 @@
 </script>
 
 <main class="flex min-h-screen flex-col">
+	<div class="bg-vermilion-500 py-2 text-center font-bold text-white">
+		Active development has been paused. Read the
+		<a
+			href="https://github.com/radix-svelte/radix-svelte/blob/develop/ANNOUNCEMENT.md"
+			target="_blank"
+			class="underline hover:opacity-75"
+		>
+			announcement
+		</a>.
+	</div>
 	<nav
 		class={cn(
 			'flex items-center justify-between px-4 py-4 xl:px-8 ',

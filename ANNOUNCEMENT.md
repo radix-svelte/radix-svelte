@@ -1,5 +1,7 @@
 # Announcement
 
+([TL;DR](#tldr) at the bottom)
+
 Radix Svelte has been one of the biggest surprises of my programming journey. Never would I have imagined that I’d be responsible for an open-source library that gained so much traction, love, and support. I’m so grateful for it all! Sincerely, thank you all.
 
 When I started this project, eager to see one of my go-to libraries be present in my most loved framework, I knew I had some work cut out for myself, but I now know that was an understatement. Radix UI is such a complex piece of software, built by amazing designers & engineers. As such, porting it out (mostly) on my own is **really** challenging. And it’s getting harder as I reach the more complex components.
@@ -56,4 +58,6 @@ Thank you for reading, and for supporting my work. I can’t overstate how happy
 
 If you have any questions, or would like to reach out, come join us in Discord: https://discord.com/invite/gQrpPs34xH
 
-**TL;DR** I'm not actively developing new components, but will still work in fixes and improvements. Radix Svelte is still accepting contributions of all kinds. If you want to help, please reach out. I'm also working on a new UI library, [Melt UI](https://melt-ui.com/).
+# TL;DR
+
+I'm not actively developing new components, but will still work in fixes and improvements. Radix Svelte is still accepting contributions of all kinds. If you want to help, please reach out. I'm also working on a new headless UI library, [Melt UI](https://melt-ui.com/).
