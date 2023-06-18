@@ -110,6 +110,7 @@ Our [Discord community](https://discord.gg/gQrpPs34xH) is a great place to get i
 
 Looking for more? Check out these other projects too:
 
+- [Melt UI](https://www.melt-ui.com/)
 - [shadcn-svelte](https://www.shadcn-svelte.com/)
 - [Skeleton](https://skeleton.dev/)
 - [Svelte Headless UI](https://svelte-headlessui.goss.io/docs)
