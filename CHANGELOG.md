@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.8.0
+
+### Minor Changes
+
+- e107582: remove select export
+
+### Patch Changes
+
+- e107582: fix: scroll behaviour
+
 ## 0.7.1
 
 ### Patch Changes
