@@ -1,7 +1,6 @@
 import example from './example.svelte';
-import type { PreviewSchema } from '$lib/internal/helpers';
 
-import type { Select } from '$lib';
+// import type { Select } from '$lib';
 import code from './example.svelte?raw';
 
 export const schema = {
@@ -27,4 +26,4 @@ export const schema = {
 		Separator: {},
 		Arrow: {},
 	},
-} satisfies PreviewSchema<typeof Select>;
+};

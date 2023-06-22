@@ -35,9 +35,9 @@
 	export let value: $$Props['value'] = undefined;
 	export let open: $$Props['open'] = defaults.open;
 	export let name: $$Props['name'] = '';
-	export let dir: $$Props['dir'] = 'ltr';
-	export let disabled: $$Props['disabled'] = false;
-	export let required: $$Props['required'] = false;
+	// export let dir: $$Props['dir'] = 'ltr';
+	// export let disabled: $$Props['disabled'] = false;
+	// export let required: $$Props['required'] = false;
 
 	const ctx = setContext({ open: (v) => (open = v), value: (v) => (value = v) });
 	$: ctx.set({ open: open, value });

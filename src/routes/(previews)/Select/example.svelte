@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import { Select } from '$lib';
 	import type { ResolvedProps } from '$lib/internal/helpers';
 	// These are internal icons, but they're not exported from the package.
@@ -45,4 +45,4 @@
 		<Select.ScrollDownButton />
 		<Select.Arrow />
 	</Select.Content>
-</Select.Root>
+</Select.Root> -->
