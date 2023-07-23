@@ -2,7 +2,8 @@ import type { ComponentProps, SvelteComponent } from 'svelte';
 
 import type { SlideParams } from 'svelte/transition';
 
-type RadixComponentGroup = { [key: string]: typeof SvelteComponent };
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type RadixComponentGroup = { [key: string]: typeof SvelteComponent<any> };
 
 /* --------------*/
 /* Preview Props */

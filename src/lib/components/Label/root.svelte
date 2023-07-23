@@ -17,6 +17,7 @@
 	export let ref: $$Props['ref'] = undefined;
 </script>
 
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <label
 	{...$$restProps}
 	on:mousedown={(event) => {
