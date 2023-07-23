@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.9.0
+
+### Minor Changes
+
+- f15efc4: Migrate to Svelte 4
+
+### Patch Changes
+
+- 1489e0f: chore: update dependencies
+
 ## 0.8.0
 
 ### Minor Changes
