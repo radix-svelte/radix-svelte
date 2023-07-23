@@ -7,7 +7,7 @@
 	const dispatch = createEventDispatcher<{
 		slideStart: { value: number };
 		slideMove: { value: number };
-		slideEnd: Record<string, never>;
+		slideEnd: null;
 		stepKeyDown: { event: KeyboardEvent; direction: number };
 		homeKeyDown: { event: KeyboardEvent };
 		endKeyDown: { event: KeyboardEvent };

@@ -22,6 +22,7 @@
 	$: $rootContext.anchor = element;
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <svelte:element
 	this={as}
 	{...$$restProps}
