@@ -15,6 +15,7 @@
 
 	$: sortedSchemas = Object.entries(schemas).sort((a, b) => {
 		return a[1].title.toLowerCase().localeCompare(b[1].title.toLowerCase());
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	}) as any;
 
 	let copied = false;
@@ -71,7 +72,7 @@
 				</button>
 			</div>
 		</div>
-		{#each sortedSchemas as [identifier, schema], idx}
+		{#each sortedSchemas as [identifier, schema]}
 			{@const propsObj = getPropsObjForSchema(schema)}
 			<div
 				class="flex min-h-[256px] w-full flex-col gap-2 overflow-hidden transition lg:h-[400px] lg:w-[400px]"

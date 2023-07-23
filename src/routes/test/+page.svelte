@@ -6,7 +6,7 @@
 
 <form>
 	{#if useRadix}
-		{#each Array(100) as _, i}
+		{#each Array(100) as _}
 			<Slider.Root
 				class="relative flex h-5
                         w-full touch-none select-none items-center
@@ -39,7 +39,7 @@
 			</Slider.Root>
 		{/each}
 	{:else}
-		{#each Array(100) as _, i}
+		{#each Array(100) as _}
 			<input min={0} max={100} step={1} value={70} type="range" style="width: 100%;" />
 		{/each}
 	{/if}

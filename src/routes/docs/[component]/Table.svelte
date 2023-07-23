@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { cn } from '$routes/helpers';
 
+	// eslint-disable-next-line no-undef
 	type Datum = $$Generic;
 
 	export let head: string[];

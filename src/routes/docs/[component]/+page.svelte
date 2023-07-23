@@ -140,6 +140,7 @@
 			<h2 class="text-xl font-bold">{subCmp}</h2>
 			{#if subCmpSchema.description}
 				<p class="text-lg font-thin text-zinc-400">
+					<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 					{@html getDescriptionHtml(subCmpSchema.description)}
 				</p>
 			{/if}

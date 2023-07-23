@@ -3,6 +3,7 @@
 
 	// Since we use a discriminated union in ToggleGroup.Root, we need to cast
 	// some props to any to satisfy the type checker. TODO: Find a better way to do this.
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	export let propsObj: any;
 </script>
 
